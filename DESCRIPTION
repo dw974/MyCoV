@@ -3,17 +3,30 @@ Type: Package
 Title: Predict classifications of partial RdRp Coronavirus sequences
 Version: 0.1.0
 Author: David A Wilkinson
-Maintainer: David A Wilkinson <david.wilkinson@univ-reunion.fr>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Maintainer: David A Wilkinson <dwilkin799@gmail.com>
+Description: This is essentially a wrapper for blastn, which is called to query a sequence database of partial RdRp Coronavirus sequences.
+    The sequences in the database have been classified by "predicted subgenus" based on the level of phylogenetic support of different
+    clade groups in a bayesian phylogenetic inference and the relative classifications of holotype reference sequences, as detailed in
+    the associated manuscript.
+    MyCoV takes any input fasta file (single or multiple sequences), and returns the best hit(s) from the database. It reports the level of 
+    certainty with which the best-matching sequence could be classified by subgenus (again, according to the manuscript), and the pairwise
+    identity of the sequences you are querying to their reference sequences.
+    In order to get an idea of whether this means your sequences are likely to belong to the same subgenus, it can also plots the calculated
+    pairwise distances with all paiwise distances for within- and between- subgenus comparisons for the different genera.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Depends: 
     dplyr,
     ape,
     ggplot2,
     DECIPHER,
     seqinr,
     formattable,
-    RColorBrewer
+    RColorBrewer,
+    roxygen2,
+    magrittr,
+    grDevices
+biocViews:
+    DECIPHER,
+    Biostrings

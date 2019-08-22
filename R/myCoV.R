@@ -1,27 +1,22 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
-#
-# You can learn more about package authoring with RStudio at:
-#
-#   http://r-pkgs.had.co.nz/
-#
-# Some useful keyboard shortcuts for package authoring:
-#
 #   Build and Reload Package:  'Ctrl + Shift + B'
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-myCoV = function (fasta=NULL, temp_dir=NULL){
+MyCoV = function (fasta=NULL, temp_dir=NULL){
 
   if (is.null(fasta)) stop("Please provide a fasta file input")
   if (is.null(temp_dir)) temp_dir=tempdir()
 
   print("Welcome to MyCov")
+
+  print(paste0("Temporary files will be written to this location: ",temp_dir))
+
   print("Reading query fasta file.")
-  tryCatch(expr={fas=readDNAStringSet(fasta)},error=function(e){stop("ERROR: Please provide a valid fasta file.")})
-  print(paste0("The query file contains ",length(fas)," sequences."))
+  tryCatch(expr={fas=Biostrings::readDNAStringSet(fasta)},error=function(e){stop("ERROR: Please provide a valid fasta file.")})
+  print(paste0("The query file contains ",length(fas)," sequence(s)."))
+  print("Removing spaces from sequence names.")
+  names(fas)=gsub(" ","_",names(fas))
+
 
   print("Generating BLAST database")
   tryCatch(expr={seqinr::write.fasta(as.list(paste(sequences)),names=as.list(names(sequences)),paste0(temp_dir,"/sequences.fasta"))},
@@ -56,20 +51,32 @@ myCoV = function (fasta=NULL, temp_dir=NULL){
   df$predicted_subgenus=predictions$Assigned_subgenus[match(df$best_hit,predictions$X)]
   df$predicted_genus=predictions$Assigned_genus[match(df$best_hit,predictions$X)]
   df$posterior_probability=sapply(1:dim(df)[1],function(x) eval(parse(text = paste0("predictions$",df$predicted_subgenus[x],"[",match(df$best_hit[x],predictions$X),"]")))*100)
+  print("Done. Now run tabulate_CoV and/or visualise_CoV on the output.")
+  print("Thanks for using MyCoV.")
+  print("I hope you found the subgenus you were looking for.")
 
   return(df)
 
 }
 
-plot_CoV=function(df=NULL){
+tabulate_CoV=function(df=NULL){
+
+  write.csv(df,"MyCoV_results.csv")
   formattable::formattable(df,list(posterior_probability=formatter("span", style = function(x) style(display = "inline-block",
                                                                                                      `border-radius` = "0px", `padding-right` = "0px",
-                                                                                                     `background-color` = formattable::csscolor(RColorBrewer::colorRampPalette(c("red", "lightgreen"))(100)[round(x)]))),
+                                                                                                     `background-color` = formattable::csscolor(grDevices::colorRampPalette(c("red", "lightgreen"))(100)[round(x)]))),
                                    pairwise_identity=formatter("span", style = function(x) style(display = "inline-block",
                                                                                                  `border-radius` = "0px", `padding-right` = "0px",
-                                                                                                 `background-color` = formattable::csscolor(RColorBrewer::colorRampPalette(c("red", "lightblue"))(100)[round(x)]))),
+                                                                                                 `background-color` = formattable::csscolor(grDevices::colorRampPalette(c("red", "lightblue"))(100)[round(x)]))),
                                    query=formattable::formatter("div", style = function(x) style(display = "inline-block", width = "200px", "align"="left","word-wrap"="break-word")),
                                    best_hit=formattable::formatter("div", style = function(x) style(display = "inline-block",width = "200px", "align"="left","word-wrap"="break-word"))
   ))
 }
 
+visualise_CoV=function(df=NULL){
+  ggplot(CoV_dis)+
+    geom_histogram(aes(x=dist,fill=compare),bins=50,colour="black")+
+    scale_fill_manual(values = c("darkgreen","red"))+
+    geom_vline(data=df,aes(xintercept=1-(pairwise_identity/100)),linetype="dashed",colour="black")+
+    facet_wrap(~predicted_genus,scale="free")
+}
