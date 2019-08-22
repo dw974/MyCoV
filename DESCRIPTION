@@ -1,0 +1,19 @@
+Package: MyCoV
+Type: Package
+Title: Predict classifications of partial RdRp Coronavirus sequences
+Version: 0.1.0
+Author: David A Wilkinson
+Maintainer: David A Wilkinson <david.wilkinson@univ-reunion.fr>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    dplyr,
+    ape,
+    ggplot2,
+    DECIPHER,
+    seqinr,
+    formattable,
+    RColorBrewer
