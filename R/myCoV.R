@@ -73,7 +73,7 @@ tabulate_CoV=function(df=NULL){
 visualise_CoV=function(df=NULL){
   ggplot(CoV_dis)+
     geom_histogram(aes(x=dist,fill=compare),bins=50,colour="black")+
-    scale_fill_manual(values = c("darkgreen","red"))+
+    scale_fill_manual(values = c("darkgreen","red"),name="Pairwise Comparison of Subgenera")+
     geom_vline(data=df,aes(xintercept=1-(pairwise_identity/100)),linetype="dashed",colour="black")+
     facet_wrap(~predicted_genus,scale="free")
 }
@@ -174,7 +174,7 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
 
   print("The best hit is highlighted by a large diamond.")
   wch=which(t$identity==max(t$identity,na.rm = T))
-  print(paste0("The best hit corresponds to:     ",t$id[wch],"___",t$host_taxon[wch],"___",t$country[wch]))
+  print(paste0("The best hit corresponds to:     ",t$id[wch],"  host=___",t$host_taxon[wch],"_-",t$species[wch],"___Date = ___",t$date[wch],"____Country of origin = ___",t$country[wch]))
   print("Thanks for using MyCoV.")
   print("I hope you found the genus:subgenus combo you were looking for.")
   print("Remember to cite our paper.")
