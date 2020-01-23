@@ -26,7 +26,9 @@ Depends:
     RColorBrewer,
     roxygen2,
     magrittr,
-    grDevices
+    grDevices,
+    phytools,
+    ggtree
 biocViews:
     DECIPHER,
     Biostrings
