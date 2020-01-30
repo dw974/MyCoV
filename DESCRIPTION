@@ -12,7 +12,9 @@ Description: This is essentially a wrapper for blastn, which is called to query 
     certainty with which the best-matching sequence could be classified by subgenus (again, according to the manuscript), and the pairwise
     identity of the sequences you are querying to their reference sequences.
     In order to get an idea of whether this means your sequences are likely to belong to the same subgenus, it can also plots the calculated
-    pairwise distances with all paiwise distances for within- and between- subgenus comparisons for the different genera.
+    pairwise distances with all pairwise distances for within- and between- subgenus comparisons for the different genera.
+    Host and country of origin metadata are also associated with the sequence database. Sequence similarity can be mapped to the phylogeny
+    from the article, with a visual summary of the similarities and the associated metadata.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
