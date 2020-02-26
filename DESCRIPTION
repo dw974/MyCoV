@@ -15,7 +15,7 @@ Description: This is essentially a wrapper for blastn, which is called to query 
     pairwise distances with all pairwise distances for within- and between- subgenus comparisons for the different genera.
     Host and country of origin metadata are also associated with the sequence database. Sequence similarity can be mapped to the phylogeny
     from the article, with a visual summary of the similarities and the associated metadata.
-License: What license is it under?
+License: MIT + file license
 Encoding: UTF-8
 LazyData: true
 Depends: 
@@ -30,7 +30,11 @@ Depends:
     magrittr,
     grDevices,
     phytools,
-    ggtree
+    ggtree,
+    knitr,
+    rmarkdown
 biocViews:
     DECIPHER,
     Biostrings
+RoxygenNote: 7.0.2
+VignetteBuilder: knitr
