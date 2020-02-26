@@ -105,6 +105,7 @@ MyCoV also allows you to visualise the relationship between a single query seque
 >plot_similarity(fasta="query_sequence.fasta")
 
 
+<<<<<<< HEAD
 This will give you something that looks like this:
 
 
@@ -125,4 +126,6 @@ I hope you enjoy using the package.
 
 Remember to cite our paper:
 "INSERT CITATION ONCE PUBLISHED"
+=======
+>>>>>>> 3268371d18880bf4e2ae59d2a330ad603a393671
 
