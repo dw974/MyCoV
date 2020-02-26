@@ -1,3 +1,10 @@
+#' MyCoV takes a fasta file or multi-fasta file as input
+#'
+#' @param fasta File name: the file containing the fasta-format sequences to be identified
+#' @param temp_dir Folder name: the temporary folder in which to store files (eg. blast databse)
+#'
+#' @return A data frame summarising the BLAST results from the query
+
 MyCoV = function (fasta=NULL, temp_dir=NULL){
 
   if (is.null(fasta)) stop("Please provide a fasta file input")
@@ -56,6 +63,13 @@ MyCoV = function (fasta=NULL, temp_dir=NULL){
 
 }
 
+#' tabulate_CoV takes the output of MyCoV as its input
+#' It then uses 'formattable' to provide a summary of the classifications of the queried sequences.
+#'
+#' @param df data.frame: the output of the function MyCoV
+#'
+#' @return A 'formattable' object summarising the data
+
 tabulate_CoV=function(df=NULL){
 
   write.csv(df,"MyCoV_results.csv")
@@ -70,6 +84,13 @@ tabulate_CoV=function(df=NULL){
   ))
 }
 
+#' visualise_CoV takes the output of MyCoV as its input
+#' It then uses 'ggplot2' to provide a summary of the pairwise distances of the queried sequences to their closes BLAST hits in the context of all pairwise comparisons between Coronaviruses .
+#'
+#' @param df data.frame: the output of the function MyCoV
+#'
+#' @return A ggplot object summarising the data
+
 visualise_CoV=function(df=NULL){
   ggplot(CoV_dis)+
     geom_histogram(aes(x=dist,fill=compare),bins=50,colour="black")+
@@ -77,6 +98,18 @@ visualise_CoV=function(df=NULL){
     geom_vline(data=df,aes(xintercept=1-(pairwise_identity/100)),linetype="dashed",colour="black")+
     facet_wrap(~predicted_genus,scale="free")
 }
+
+
+#' plot_similarity takes a mono-fasta file as an iput
+#' It then uses 'ggtree' to provide a summary of how the queried sequence compared to classified sequences in our phylogenetic study.
+#' It also provides a visual summary of host and country or origin metadata associated with the classified sequences.
+#'
+#' Please remember to cite ggtree correctly if you go on to use this representation.
+#'
+#' @param fasta file: a fasta file containing a single dna sequence in fasta format
+#' @param temp_dir Folder name: the temporary folder in which to store files (eg. blast databse)
+#'
+#' @return A ggplot object summarising the data
 
 plot_similarity=function(fasta=NULL, temp_dir=NULL){
 
