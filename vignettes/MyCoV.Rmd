@@ -53,12 +53,7 @@ From a fresh install of ubuntu (tested in Ubuntu 19, and assuming you already ha
 
 >devtools::install_github(“dw974/MyCoV”)
 
-
-
-```{r setup}
-library(MyCoV)
-```
-
+>library(MyCoV)
 
 
 ## Using MyCoV
@@ -113,7 +108,7 @@ This will give you something that looks like this:
 
 Remember to cite BOTH our paper and ggtree if you use this.
 
-The tree is presented here is a subtree of the main phylogenetic analysis comparing more than 3000 unique coronavirus sequences that is presented in the paper. The metadata are compiled from more than 7000 isolates.
+The tree presented here is a subtree of the main phylogenetic analysis comparing more than 3000 unique coronavirus sequences that is presented in the paper. The metadata are compiled from more than 7000 isolates.
 
 The subtree presented is the lowest branch of the main tree that contains all of the isolates that return blast hits to the queried sequence.
 
