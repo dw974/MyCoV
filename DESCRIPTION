@@ -32,7 +32,8 @@ Depends:
     phytools,
     ggtree,
     knitr,
-    rmarkdown
+    rmarkdown,
+    R (>= 2.10)
 biocViews:
     DECIPHER,
     Biostrings
