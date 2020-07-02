@@ -57,12 +57,18 @@ This will give you something that looks like this:
 
 To interpret this:
 
-"query": the name of the sequence in the query fasta file
-"best_hit": the sequence that showed the closest identity in the reference database
+"query": the name of the sequence in the query fasta file.
+
+"best_hit": the sequence that showed the closest identity in the reference database.
+
 "predicted_subgenus": the subgenus to which the best_hit sequence was assigned in the phylogenetic analyses in our paper.
+
 "predicted_genus": the genus to which the best_hit sequence was assigned in the phylogenetic analyses in our paper.
+
 "posterior_probability": the proportion of trees in our bayesian inference in which the best_hit sequence clustered in the same group as the corresponding subgenus holotype sequence.
+
 "pairwise_identity": pairwise identity between the query sequence and the bet_hit sequence in the reference database.
+
 "recombination": Whether the best_hit sequence also had a sequence in the spike region that gave a different classification result due to recombination.
 
 
@@ -99,6 +105,14 @@ To the right, a presence/absence summary of the metadata associated with each ti
 
 I hope you enjoy using the package.
 
-Remember to cite our paper:
-"INSERT CITATION ONCE PUBLISHED"
+## Using MyCoV
 
+OUR PAPER
+
+and if you use the output of ggtree:
+
+- Guangchuang Yu. Using ggtree to visualize data on tree-like structures. Current Protocols in Bioinformatics, 2020, 69:e96. doi:10.1002/cpbi.96
+
+- Guangchuang Yu, Tommy Tsan-Yuk Lam, Huachen Zhu, Yi Guan. Two methods for mapping and visualizing associated data on phylogeny using ggtree. Molecular Biology and Evolution 2018, 35(12):3041-3043. doi:10.1093/molbev/msy194
+
+- Guangchuang Yu, David Smith, Huachen Zhu, Yi Guan, Tommy Tsan-Yuk Lam. ggtree: an R package for visualization and annotation of phylogenetic trees with their covariates and other associated data. Methods in Ecology and Evolution 2017, 8(1):28-36. doi:10.1111/2041-210X.12628
