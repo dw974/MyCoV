@@ -93,8 +93,6 @@ This will give you something that looks like this:
 ![Tabular representation of MyCoV results.](vignettes/tree.png)
 
 
-Remember to cite BOTH our paper and ggtree if you use this.
-
 The tree presented here is a subtree of the main phylogenetic analysis comparing more than 3000 unique coronavirus sequences that is presented in the paper. The metadata are compiled from more than 7000 isolates.
 
 The subtree presented is the lowest branch of the main tree that contains all of the isolates that return blast hits to the queried sequence.
@@ -105,7 +103,7 @@ To the right, a presence/absence summary of the metadata associated with each ti
 
 I hope you enjoy using the package.
 
-## Using MyCoV
+## CITING MyCoV
 
 OUR PAPER
 
