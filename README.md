@@ -53,7 +53,7 @@ Then you can tabulate the results through the 'formattable' package:
 
 This will give you something that looks like this:
 
-![Tabular representation of MyCoV results.](table.png){#id .class width=100%}
+![Tabular representation of MyCoV results.](vignettes/table.png){#id .class width=100%}
 
 To interpret this:
 
@@ -73,7 +73,7 @@ Alternatively, you can visualise the results in terms of best-hit pairwise dista
 This will generate something like this:
 
 
-![Graphical representation of MyCoV results.](hist.png){#id .class width=100%}
+![Graphical representation of MyCoV results.](vignettes/hist.png){#id .class width=100%}
 
 
 MyCoV also allows you to visualise the relationship between a single query sequence and all sequences in the reference database, whilst also providing a summary of the host and geographical origin of the metadata associated with the reference database sequences.
@@ -84,7 +84,7 @@ MyCoV also allows you to visualise the relationship between a single query seque
 This will give you something that looks like this:
 
 
-![Tabular representation of MyCoV results.](tree.png){#id .class width=100%}
+![Tabular representation of MyCoV results.](vignettes/tree.png){#id .class width=100%}
 
 
 Remember to cite BOTH our paper and ggtree if you use this.
