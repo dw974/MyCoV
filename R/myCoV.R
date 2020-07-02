@@ -110,7 +110,7 @@ visualise_CoV=function(df=NULL){
 #' @param fasta file: a fasta file containing a single dna sequence in fasta format
 #' @param temp_dir Folder name: the temporary folder in which to store files (eg. blast databse)
 #'
-#' @return A ggplot object summarising the data
+#' @return Saves the tree plot to "output_plot.pdf" in your working directory.
 
 plot_similarity=function(fasta=NULL, temp_dir=NULL){
 
@@ -165,7 +165,7 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
   tr1$data$x=tr1$data$x/max(tr1$data$x)
 
   a=tr1 +
-    geom_point(aes(colour=identity,size=identity==max(tab2$identity),shape=identity==max(tab2$identity)))+
+    geom_tippoint(aes(colour=identity,shape=identity==max(tab2$identity)))+
     geom_tiplab(aes(label=round(identity,digits = 3)),size=1.5,x=1.01)+
     geom_tiplab(aes(label=Assigned_subgenus),size=1.5,x=1.1)+
     geom_tiplab(aes(label=label),size=1.5,x=1.3)+
@@ -174,7 +174,8 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
     scale_shape_manual(values = c(20,18))+
     xlim(0,2.5)+
     ylim(0,length(tr$tip.label)+30)+
-    theme_tree()
+    theme_tree()+
+    theme(legend.position="none")
 
   t$host_taxon=factor(t$host_taxon)
   t$continent=factor(t$continent)
@@ -190,7 +191,8 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
     theme_tree()+
     ylim(0,length(tr$tip.label)+30)+
     xlim(0,max(as.numeric(df3$host_taxon))+7)+
-    scale_fill_manual(values="blue")
+    scale_fill_manual(values="blue")+
+    theme(legend.position="none")
 
   c=ggplot(df4)+
     geom_tile(data=df4, aes(x=as.numeric(continent),y=as.numeric(id),fill=ifelse(count>0,"red",NA))) +
@@ -198,20 +200,23 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
     theme_tree()+
     ylim(0,length(tr$tip.label)+30)+
     xlim(0,max(as.numeric(df4$continent))+3)+
-    scale_fill_manual(values="red")
-
-  d=multiplot(a,b,c,ncol=3,widths=c(2,1,1))
+    scale_fill_manual(values="red")+
+    theme(legend.position="none")
 
   pdf(file = "output_plot.pdf",width=20,height=10)
-  d
+  ggtree::multiplot(a,b,c,ncol=3,widths=c(2,1,1))
   dev.off()
 
-  print("The best hit is highlighted by a large diamond.")
+  print("Your plot has been written to 'output_plot.pdf' in your working directory.")
+  print("The best hit is highlighted by a diamond.")
   wch=which(t$identity==max(t$identity,na.rm = T))
-  print(paste0("The best hit corresponds to:     ",t$id[wch],"  host=___",t$host_taxon[wch],"_-",t$species[wch],"___Date = ___",t$date[wch],"____Country of origin = ___",t$country[wch]))
+  print("####THESE ARE THE BEST HIT DETAILS#####")
+  print(paste0("The best hit corresponds to :",t$id[wch]))
+  print(paste0("host : ",t$host_taxon[wch],"  -  ",t$species[wch]))
+  print(paste0("Date : ",t$date[wch]))
+  print(paste0("Country of origin : ",t$country[wch]))
   print("Thanks for using MyCoV.")
   print("I hope you found the genus:subgenus combo you were looking for.")
   print("Remember to cite our paper.")
   print("If you use plot_similarity, please also cite ggtree correctly")
-
-  return(d)}
+}
