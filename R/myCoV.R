@@ -54,6 +54,7 @@ MyCoV = function (fasta=NULL, temp_dir=NULL){
   df$predicted_subgenus=predictions$Assigned_subgenus[match(df$best_hit,predictions$X)]
   df$predicted_genus=predictions$Assigned_genus[match(df$best_hit,predictions$X)]
   df$posterior_probability=sapply(1:dim(df)[1],function(x) eval(parse(text = paste0("predictions$",df$predicted_subgenus[x],"[",match(df$best_hit[x],predictions$X),"]")))*100)
+  df$recombination=predictions$recombination[match(df$best_hit,predictions$X)]
   print("Done. Now run tabulate_CoV and/or visualise_CoV on the output.")
   print("Thanks for using MyCoV.")
   print("I hope you found the genus:subgenus combo you were looking for.")
