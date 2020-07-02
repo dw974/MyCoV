@@ -215,8 +215,3 @@ plot_similarity=function(fasta=NULL, temp_dir=NULL){
   print("If you use plot_similarity, please also cite ggtree correctly")
 
   return(d)}
-
-#' @export MyCoV
-#' @export tabulate_CoV
-#' @export visualise_CoV
-#' @export plot_similarity
