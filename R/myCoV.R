@@ -1,3 +1,8 @@
+#' @export MyCoV
+#' @export tabulate_CoV
+#' @export visualise_CoV
+#' @export plot_similarity
+
 #' MyCoV takes a fasta file or multi-fasta file as input
 #'
 #' @param fasta File name: the file containing the fasta-format sequences to be identified
