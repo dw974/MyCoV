@@ -67,9 +67,9 @@ To interpret this:
 
 "posterior_probability": the proportion of trees in our bayesian inference in which the best_hit sequence clustered in the same group as the corresponding subgenus holotype sequence.
 
-"pairwise_identity": pairwise identity between the query sequence and the bet_hit sequence in the reference database.
+"pairwise_identity": pairwise identity between the query sequence and the best_hit sequence in the reference database.
 
-"recombination": Whether the best_hit sequence also had a sequence in the spike region that gave a different classification result due to recombination.
+"recombination": Whether the best_hit sequence also had a sequence in the spike region that gave a different classification result due to recombination. Possible values are 1) "ND" - not determined, the best_hit sequence did not have corresponding information from the spike region. 2) "None" - the corresponding information from the spike region resulted in assignment of the sequence to the same subgenus. 3) subgenus_rdrp/subgenus-spike - the information from the spike region of the best_hit sequence classified the sequence into a different subgenus.
 
 
 Alternatively, you can visualise the results in terms of best-hit pairwise distances to the query sequence(s):
