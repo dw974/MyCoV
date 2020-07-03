@@ -1,3 +1,11 @@
+## The MyCoV package
+
+MyCoV is an R package that allows the prediction of coronavirus subgenus based on partial RdRp data.
+
+This package is associated with the following publication:
+
+INSERT PUBLICATION HERE
+
 ## MyCoV installation:
 
 The ‘MyCoV’ package will currently only work in a linux environment.
