@@ -4,7 +4,10 @@ MyCoV is an R package that allows the prediction of coronavirus subgenus based o
 
 This package is associated with the following publication:
 
-INSERT PUBLICATION HERE
+Analysis of partial sequences of the RNA-dependent RNA polymerase gene as a tool for genus and subgenus classification of coronaviruses
+Wilkinson DA, Joffrin L, Lebarbenchon C, Mavingui P.
+Journal of General Virology (2020)
+https://doi.org/10.1099/jgv.0.001494
 
 ## MyCoV installation:
 
@@ -113,7 +116,10 @@ I hope you enjoy using the package.
 
 ## CITING MyCoV
 
-OUR PAPER
+Analysis of partial sequences of the RNA-dependent RNA polymerase gene as a tool for genus and subgenus classification of coronaviruses
+Wilkinson DA, Joffrin L, Lebarbenchon C, Mavingui P.
+Journal of General Virology (2020)
+https://doi.org/10.1099/jgv.0.001494
 
 and if you use the output of ggtree:
 
