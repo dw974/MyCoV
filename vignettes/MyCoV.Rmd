@@ -119,5 +119,9 @@ To the right, a presence/absence summary of the metadata associated with each ti
 I hope you enjoy using the package.
 
 Remember to cite our paper:
-"INSERT CITATION ONCE PUBLISHED"
+Analysis of partial sequences of the RNA-dependent RNA polymerase gene as a tool for genus and subgenus classification of coronaviruses
+Wilkinson DA, Joffrin L, Lebarbenchon C, Mavingui P.
+Journal of General Virology (2020)
+https://doi.org/10.1099/jgv.0.001494
+
 
