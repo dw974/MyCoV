@@ -85,7 +85,7 @@ To interpret this:
 
 Alternatively, you can visualise the results in terms of best-hit pairwise distances to the query sequence(s):
 
->tabulate_CoV(df=res)
+>visualise_CoV(df=res)
 
 This will generate something like this:
 
