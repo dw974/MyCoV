@@ -57,6 +57,7 @@ MyCoV = function (fasta=NULL, temp_dir=NULL){
   df$posterior_probability=sapply(1:dim(df)[1],function(x) eval(parse(text = paste0("predictions$",df$predicted_subgenus[x],"[",match(df$best_hit[x],predictions$X),"]")))*100)
   df$recombination=predictions$recombination[match(df$best_hit,predictions$X)]
   print("Done. Now run tabulate_CoV and/or visualise_CoV on the output.")
+  print("If some of your sequences are missing from the list, this is because they did not have sufficient similarity to sequences in the query database to return any matches.")
   print("Thanks for using MyCoV.")
   print("I hope you found the genus:subgenus combo you were looking for.")
   print("Remember to cite our paper.")
