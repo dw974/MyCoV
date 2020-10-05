@@ -49,6 +49,7 @@ MyCoV = function (fasta=NULL, temp_dir=NULL){
   tab2=tab %>% dplyr::mutate(pid2=pident*length/387) %>% dplyr::group_by(qaccver) %>% dplyr::summarise(best_hit=saccver[pid2==max(pid2)][1],identity=max(pid2))
 
   df=data.frame(query=names(fas),best_hit=NA,predicted_subgenus=NA,predicted_genus=NA,posterior_probability=NA,pairwise_identity=NA,stringsAsFactors = F)
+  df=df[df$query %in% tab2$qaccver,]
   df$best_hit[match(tab2$qaccver,df$query)]=tab2$best_hit
   df$pairwise_identity[match(tab2$qaccver,df$query)]=tab2$identity
   df$predicted_subgenus=predictions$Assigned_subgenus[match(df$best_hit,predictions$X)]
